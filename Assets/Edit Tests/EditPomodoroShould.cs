@@ -8,7 +8,7 @@ using UnityEngine.TestTools;
 namespace EditorTests
 {
 
-    public class PomodoroShould
+    public class EditPomodoroShould
     {
 
         //CREATION
