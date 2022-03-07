@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Pomodoro : MonoBehaviour
+﻿namespace PomodoroKata
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Pomodoro
     {
-        
-    }
+        public float TimeLeft { get; private set; } = 25 * 60f;
+        public PomodoroState State { get; internal set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Pomodoro() { }
+
+        public Pomodoro(float customTime)
+        {
+            TimeLeft = customTime;
+        }
+
     }
 }
