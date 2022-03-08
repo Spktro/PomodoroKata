@@ -24,14 +24,12 @@ namespace PlayTests
         //Be able to be interrupted (play) - 
         //Count time while interrupted (play) -
         //Become canceled after being interrupted (edit) -
-        //Not be finishable when is canceled (play)
+        //Not be finishable when is canceled (play) -
         //Not be interruptable when it hasn't started (edit) -
 
         //RESTART
-        //Be able to restart the timer and start from the beginning (play)
-        //Be able to restart when after being canceled (play)
-
-       // private Pomodoro pomodoro;
+        //Be able to restart the timer and start from the beginning (play) -
+        //Be able to restart only after being canceled (play)
 
         private PomodoroController pomodoroController;
        
@@ -135,6 +133,39 @@ namespace PlayTests
         }
         #endregion
 
+        #region Restart Test
+        [UnityTest]
+        public IEnumerator BeAbleToRestartTheTimerAndStartFromTheBeginning()
+        {
+            float startingTime = 1, waitingTime = 0.5f;
+            pomodoroController.Initialize(startingTime);
+
+            pomodoroController.StartTimer();
+            yield return new WaitForSeconds(waitingTime);
+            pomodoroController.Interrupt();
+            pomodoroController.Restart();
+
+            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoroController.TimeLeft, startingTime));
+        }
+        [UnityTest]
+        public IEnumerator BeAbleToRestartOnlyAfterBeingCanceled()
+        {
+            float startingTime = 1, waitingTime = 0.5f;
+            pomodoroController.Initialize(startingTime);
+
+            pomodoroController.StartTimer();
+            yield return new WaitForSeconds(waitingTime);
+            pomodoroController.Restart();
+
+            Assert.IsFalse(Utils.IsEqualWithTolerance(pomodoroController.TimeLeft, startingTime));
+
+            pomodoroController.Interrupt();
+            pomodoroController.Restart();
+
+            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoroController.TimeLeft, startingTime));
+        }
+        #endregion
+
         public void GivenPomodoro()
         {
             GameObject pomodoroGO = new GameObject("Pomodoro");
@@ -146,4 +177,5 @@ namespace PlayTests
             GameObject.Destroy(pomodoroController.gameObject);
         }
     }
+    
 }

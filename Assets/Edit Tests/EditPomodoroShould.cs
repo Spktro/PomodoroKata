@@ -25,12 +25,12 @@ namespace EditorTests
         //Be able to be interrupted (edit) -
         //Count time while interrupted (play) - 
         //Become canceled after being interrupted (edit) -
-        //Not be finishable when is canceled (play)
+        //Not be finishable when is canceled (play) -
         //Not be interruptable when it hasn't started (edit) -
 
         //RESTART
         //Be able to restart the timer and start from the beginning (play)
-        //Be able to restart when after being canceled (play)
+        //Be able to restart only after being canceled (play)
 
         private Pomodoro pomodoro;
 
@@ -40,7 +40,7 @@ namespace EditorTests
         {
             pomodoro = new Pomodoro();
 
-            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoro.TimeLeft, 25 * 60f));
+            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoro.InitTime, 25 * 60f));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace EditorTests
             float customTime = 10 * 60f;
             pomodoro = new Pomodoro(customTime);
 
-            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoro.TimeLeft, customTime));
+            Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoro.InitTime, customTime));
         }
         #endregion
 

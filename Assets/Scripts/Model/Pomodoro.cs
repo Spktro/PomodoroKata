@@ -5,7 +5,8 @@ namespace PomodoroKata
     [Serializable]
     public class Pomodoro
     {
-        public float TimeLeft { get; private set; } = 25 * 60f;
+        public float InitTime { get; private set; } = 25 * 60f;
+        public float TimeLeft { get; private set; }
         public PomodoroState State { get; internal set; }
         public float InterruptedTime { get; private set; } = 0;
 
@@ -15,7 +16,7 @@ namespace PomodoroKata
 
         public Pomodoro(float customTime) : base()
         {
-            TimeLeft = customTime;
+            InitTime = customTime;
         }
 
         public void StartTimer()
@@ -23,6 +24,7 @@ namespace PomodoroKata
             if (State != PomodoroState.CANCELED)
             {
                 State = PomodoroState.RUNNING;
+                TimeLeft = InitTime;
             }
         }
 
@@ -50,7 +52,7 @@ namespace PomodoroKata
                     }
                     break;
 
-                case PomodoroState.CANCELED:                    
+                case PomodoroState.CANCELED:
                     InterruptedTime += deltaTime;                    
                     break;
                 
@@ -60,7 +62,13 @@ namespace PomodoroKata
             
         }
 
-        
-
+        public void Restart()
+        {
+            if (State == PomodoroState.CANCELED)
+            {
+                State = PomodoroState.RUNNING;
+                TimeLeft = InitTime;
+            }
+        }
     }
 }

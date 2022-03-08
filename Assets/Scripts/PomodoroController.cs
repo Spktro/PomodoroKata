@@ -42,5 +42,10 @@ namespace PomodoroKata
         {
             pomodoro.Interrupt();
         }
+
+        public void Restart()
+        {
+            pomodoro.Restart();
+        }
     }
 }
