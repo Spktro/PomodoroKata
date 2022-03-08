@@ -21,7 +21,7 @@ namespace PomodoroKata
 
         public void StartTimer()
         {
-            if (State != PomodoroState.CANCELED)
+            if (State == PomodoroState.STOPPED || State == PomodoroState.FINISHED)
             {
                 State = PomodoroState.RUNNING;
                 TimeLeft = InitTime;
