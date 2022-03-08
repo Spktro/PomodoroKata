@@ -17,16 +17,28 @@ namespace PomodoroKata
             TimeLeft = customTime;
         }
 
-        public void Run(float deltaTime) {
-            if (TimeLeft >= 0)
+        public void Interrupt()
+        {
+            if (State == PomodoroState.RUNNING)
             {
-                TimeLeft -= deltaTime;
-                if (TimeLeft < 0)
+                State = PomodoroState.INTERRUPTED;
+            }
+        }
+
+        public void Run(float deltaTime) {
+
+            if (State == PomodoroState.RUNNING)
+            {
+                if (TimeLeft >= 0)
                 {
-                    TimeLeft = 0;
-                    State = PomodoroState.FINISHED;
+                    TimeLeft -= deltaTime;
+                    if (TimeLeft < 0)
+                    {
+                        TimeLeft = 0;
+                        State = PomodoroState.FINISHED;
+                    }
                 }
-            } 
+            }
             
         }
 

@@ -93,6 +93,19 @@ namespace PlayTests
             Assert.AreEqual(pomodoroController.State, PomodoroState.FINISHED);
         }
 
+        [UnityTest]
+        public IEnumerator BeAbleToBeInterrupted()
+        {
+            float startingTime = 1, waitingTime = 0.5f;
+            pomodoroController.Initialize(startingTime);
+
+            pomodoroController.StartTimer();
+            yield return new WaitForSeconds(waitingTime);
+            pomodoroController.Interrupt();
+
+            Assert.AreEqual(pomodoroController.State, PomodoroState.INTERRUPTED);
+        }
+
         public void GivenPomodoro()
         {            
             GameObject pomodoroGO = new GameObject("Pomodoro");

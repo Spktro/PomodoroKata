@@ -37,5 +37,10 @@ namespace PomodoroKata
         {
             pomodoro.State = PomodoroState.RUNNING;
         }
+
+        public void Interrupt()
+        {
+            pomodoro.Interrupt();
+        }
     }
 }
