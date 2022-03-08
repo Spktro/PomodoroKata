@@ -1,0 +1,5 @@
+chequeo de tipo es caro en lugar de comparar con enum
+usariamos un enum aun en la clase state
+
+
+pruebas de tipo "solo cuando" : Pomodoro - BeAbleToRestartOnlyAfterBeingCanceled
