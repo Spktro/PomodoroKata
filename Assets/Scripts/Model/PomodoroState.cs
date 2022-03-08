@@ -1,6 +1,6 @@
 ﻿public enum PomodoroState { 
     STOPPED,
     RUNNING,
-    INTERRUPTED, 
+    CANCELED, 
     FINISHED
 }

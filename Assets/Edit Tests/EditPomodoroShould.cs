@@ -22,9 +22,9 @@ namespace EditorTests
         //Become completed when its time runs out (play)
 
         //INTERRUPT
-        //Be able to be interrupted (edit)
-        //Count time while interrupted (play)
-        //Become canceled after being interrupted (edit)
+        //Be able to be interrupted (edit) -
+        //Count time while interrupted (play) - 
+        //Become canceled after being interrupted (edit) -
         //Not be completable when is canceled (edit)
         //Not be interruptable when it hasn't started (edit)
 
@@ -60,6 +60,19 @@ namespace EditorTests
             pomodoro = new Pomodoro();
 
             Assert.AreEqual(pomodoro.State, PomodoroState.STOPPED);
+        }
+
+        #endregion
+
+        #region Interrupted Test
+        
+        [Test]
+        public void BecomeCanceledAfterBeingInterrupted()
+        {
+            pomodoro = new Pomodoro();            
+            pomodoro.StartTimer();
+            pomodoro.Interrupt();
+            Assert.AreEqual(pomodoro.State, PomodoroState.CANCELED);
         }
 
         #endregion

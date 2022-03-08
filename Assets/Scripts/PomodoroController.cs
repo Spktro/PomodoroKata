@@ -13,16 +13,16 @@ namespace PomodoroKata
         public float TimeLeft => pomodoro.TimeLeft;
         public PomodoroState State => pomodoro.State;
 
+        public float InterruptedTime => pomodoro.InterruptedTime;
+
         private void Awake()
         {
             pomodoro = new Pomodoro();
         }
 
         private void Update()
-        {            
-            if (pomodoro.State == PomodoroState.RUNNING) {
-                pomodoro.Run(Time.deltaTime);
-            }
+        {                       
+            pomodoro.Run(Time.deltaTime);           
         }
 
         public void Initialize() {
@@ -35,7 +35,7 @@ namespace PomodoroKata
 
         public void StartTimer()
         {
-            pomodoro.State = PomodoroState.RUNNING;
+            pomodoro.StartTimer();
         }
 
         public void Interrupt()
