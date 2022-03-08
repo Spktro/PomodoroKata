@@ -1,4 +1,5 @@
 ﻿public enum PomodoroState { 
     STOPPED,
-    RUNNING
+    RUNNING,
+    FINISHED
 }

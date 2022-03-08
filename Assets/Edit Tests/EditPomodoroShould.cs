@@ -18,7 +18,7 @@ namespace EditorTests
         //INITIATE
         //Start on stopped state when it's created (edit)
         //Init timer when started (play)
-        //Not be able to finish if it hasn't started (edit)
+        //Not be able to finish if it hasn't started (play)
         //Become completed when its time runs out (play)
 
         //INTERRUPT

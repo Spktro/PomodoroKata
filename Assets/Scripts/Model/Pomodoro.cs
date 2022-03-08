@@ -18,8 +18,19 @@ namespace PomodoroKata
         }
 
         public void Run(float deltaTime) {
-            TimeLeft -= deltaTime;
+            if (TimeLeft >= 0)
+            {
+                TimeLeft -= deltaTime;
+                if (TimeLeft < 0)
+                {
+                    TimeLeft = 0;
+                    State = PomodoroState.FINISHED;
+                }
+            } 
+            
         }
+
+        
 
     }
 }

@@ -19,7 +19,7 @@ namespace PomodoroKata
         }
 
         private void Update()
-        {
+        {            
             if (pomodoro.State == PomodoroState.RUNNING) {
                 pomodoro.Run(Time.deltaTime);
             }
