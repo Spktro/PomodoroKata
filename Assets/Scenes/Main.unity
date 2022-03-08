@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 31435499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1038519037}
+        m_TargetAssemblyTypeName: PomodoroKata.PomodoroView, Core
+        m_MethodName: OnRestartClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &31435499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +417,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169121580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1038519037}
+        m_TargetAssemblyTypeName: PomodoroKata.PomodoroView, Core
+        m_MethodName: OnInterruptClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &169121580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,8 +1088,10 @@ GameObject:
   - component: {fileID: 1038519036}
   - component: {fileID: 1038519035}
   - component: {fileID: 1038519034}
+  - component: {fileID: 1038519038}
+  - component: {fileID: 1038519037}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Pomodoro View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,6 +1187,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038519032}
   m_CullTransparentMesh: 1
+--- !u!114 &1038519037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038519032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ccbdddc707c7c4cb770a0626cca304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initTimeInp: {fileID: 2056092938}
+  timerTxt: {fileID: 320771150}
+  stateTxt: {fileID: 644079442}
+  startBtn: {fileID: 1917489225}
+  interruptBtn: {fileID: 169121579}
+  restartBtn: {fileID: 31435498}
+--- !u!114 &1038519038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038519032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd2430dee6dc7440bd6de1625cb72a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1105853022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1917489226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1038519037}
+        m_TargetAssemblyTypeName: PomodoroKata.PomodoroView, Core
+        m_MethodName: OnStartClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1917489226
 MonoBehaviour:
   m_ObjectHideFlags: 0
