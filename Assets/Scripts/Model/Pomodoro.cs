@@ -20,7 +20,10 @@ namespace PomodoroKata
 
         public void StartTimer()
         {
-            State = PomodoroState.RUNNING;
+            if (State != PomodoroState.CANCELED)
+            {
+                State = PomodoroState.RUNNING;
+            }
         }
 
         public void Interrupt()

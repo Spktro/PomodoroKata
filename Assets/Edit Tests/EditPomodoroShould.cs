@@ -25,8 +25,8 @@ namespace EditorTests
         //Be able to be interrupted (edit) -
         //Count time while interrupted (play) - 
         //Become canceled after being interrupted (edit) -
-        //Not be completable when is canceled (edit)
-        //Not be interruptable when it hasn't started (edit)
+        //Not be finishable when is canceled (play)
+        //Not be interruptable when it hasn't started (edit) -
 
         //RESTART
         //Be able to restart the timer and start from the beginning (play)
@@ -73,6 +73,15 @@ namespace EditorTests
             pomodoro.StartTimer();
             pomodoro.Interrupt();
             Assert.AreEqual(pomodoro.State, PomodoroState.CANCELED);
+        }
+
+        [Test]
+        public void NotBeInterruptableWhenItHasntStarted()
+        {
+            pomodoro = new Pomodoro();
+            PomodoroState currentState = pomodoro.State;
+            pomodoro.Interrupt();
+            Assert.AreEqual(currentState, pomodoro.State);
         }
 
         #endregion

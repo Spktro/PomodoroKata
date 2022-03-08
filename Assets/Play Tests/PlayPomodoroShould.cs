@@ -24,8 +24,8 @@ namespace PlayTests
         //Be able to be interrupted (play) - 
         //Count time while interrupted (play) -
         //Become canceled after being interrupted (edit) -
-        //Not be completable when is canceled (edit)
-        //Not be interruptable when it hasn't started (edit)
+        //Not be finishable when is canceled (play)
+        //Not be interruptable when it hasn't started (edit) -
 
         //RESTART
         //Be able to restart the timer and start from the beginning (play)
@@ -117,6 +117,21 @@ namespace PlayTests
             yield return new WaitForSeconds(waitingTime);
 
             Assert.IsTrue(Utils.IsEqualWithTolerance(pomodoroController.InterruptedTime, waitingTime));
+        }
+
+
+        [UnityTest]
+        public IEnumerator NotBeFinishableWhenIsCanceled()
+        {
+            float startingTime = 1, waitingTime = 1.1f;
+            pomodoroController.Initialize(startingTime);
+
+            pomodoroController.StartTimer();
+            pomodoroController.Interrupt();
+            pomodoroController.StartTimer();
+            yield return new WaitForSeconds(waitingTime);
+
+            Assert.AreNotEqual(pomodoroController.State,PomodoroState.FINISHED);
         }
         #endregion
 
